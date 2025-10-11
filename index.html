@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinWalk - Verdienen Sie Geld beim Gehen | Android App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00C853;
+            --primary-dark: #009624;
+            --secondary: #2962FF;
+            --accent: #FF4081;
+            --dark: #1A237E;
+            --light: #F8F9FF;
+            --gray: #455A64;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --radius: 16px;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: var(--light);
+            color: #2E3A4D;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .header-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(41, 98, 255, 0.3);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(41, 98, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.05"><path d="M500 50Q550 0 600 50T700 50T800 50T900 50T1000 50V100H0V50Q100 50 200 50T300 50T400 50T500 50Z"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s, transform 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .phone-mockup {
+            max-width: 100%;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Money Section */
+        .money-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .money-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .money-visual {
+            text-align: center;
+        }
+
+        .money-chart {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .chart-bar {
+            height: 30px;
+            background: var(--gradient);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            text-align: right;
+            padding-right: 15px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .bar-1 { width: 85%; }
+        .bar-2 { width: 70%; }
+        .bar-3 { width: 60%; }
+        .bar-4 { width: 45%; }
+
+        .money-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .money-text ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .money-text li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .money-text li i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 20px rgba(41, 98, 255, 0.3);
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .android-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--dark);
+            color: white;
+            padding: 18px 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content, .money-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <span>WinWalk</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Funktionen</a></li>
+                        <li><a href="#money">Einnahmen</a></li>
+                        <li><a href="#how-it-works">So geht's</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </nav>
+                <a href="germany.html" class="header-cta">Jetzt installieren</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Verdienen Sie Geld mit jedem Schritt</h1>
+                    <p class="hero-subtitle">Die revolutionäre Android-App, die Ihr Gehen in echtes Geld verwandelt. Einfach, sicher und effektiv.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">500.000+</div>
+                            <div class="stat-label">Aktive Nutzer</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">2,5 Mio. €</div>
+                            <div class="stat-label">Auszahlungen</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4,8 ★</div>
+                            <div class="stat-label">Bewertung</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="germany.html" class="btn-primary">
+                            <i class="fab fa-google-play"></i>
+                            JETZT KOSTENLOS HERUNTERLADEN
+                        </a>
+                        <a href="#features" class="btn-secondary">
+                            <i class="fas fa-play-circle"></i>
+                            MEHR ERFAHREN
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://cdn.pixabay.com/photo/2021/02/04/09/14/smartphone-5980645_1280.png" alt="WinWalk App auf Android" class="phone-mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">So verdienen Sie Geld</h2>
+                <p class="section-subtitle">WinWalk belohnt Sie für Ihre tägliche Bewegung mit echten finanziellen Anreizen</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3>Bis zu 50€ pro Monat</h3>
+                    <p>Verdienen Sie echtes Geld für Ihre täglichen Schritte. Je aktiver Sie sind, desto mehr können Sie verdienen.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Tägliche Challenges</h3>
+                    <p>Nehmen Sie an täglichen Herausforderungen teil und verdienen Sie zusätzliche Boni für erreichte Ziele.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Freunde einladen</h3>
+                    <p>Laden Sie Freunde ein und verdienen Sie 5€ Bonus für jede Person, die sich über Ihren Link anmeldet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Money Section -->
+    <section class="money-section" id="money">
+        <div class="container">
+            <div class="money-content">
+                <div class="money-visual">
+                    <div class="money-chart">
+                        <h3>Durchschnittliche Monatseinnahmen</h3>
+                        <div class="chart-bar bar-1">85% - 30-50€</div>
+                        <div class="chart-bar bar-2">70% - 20-30€</div>
+                        <div class="chart-bar bar-3">60% - 10-20€</div>
+                        <div class="chart-bar bar-4">45% - 5-10€</div>
+                    </div>
+                    <p>Basierend auf Daten von 500.000 aktiven Nutzern</p>
+                </div>
+                
+                <div class="money-text">
+                    <h2>Echte Einnahmen, echte Ergebnisse</h2>
+                    <p>WinWalk-Nutzer verdienen durchschnittlich 25€ pro Monat, nur indem sie ihren Alltag leben. Mit etwas Extra-Bewegung können Sie sogar noch mehr erreichen.</p>
+                    
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Sofortige Auszahlung</strong> - Erhalten Sie Ihr Geld innerhalb von 24 Stunden</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Mehrere Zahlungsmethoden</strong> - PayPal, Banküberweisung oder Geschenkkarten</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Keine versteckten Kosten</strong> - Komplett kostenlos, keine Abofallen</div>
+                        </li>
+                    </ul>
+                    
+                    <a href="germany.html" class="btn-primary">
+                        <i class="fab fa-google-play"></i>
+                        KOSTENLOS FÜR ANDROID
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">So einfach funktioniert's</h2>
+                <p class="section-subtitle">In nur 3 Schritten starten Sie mit dem Geldverdienen</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>App herunterladen</h3>
+                    <p>Laden Sie WinWalk kostenlos aus dem Google Play Store herunter und installieren Sie die App.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Konto erstellen</h3>
+                    <p>Registrieren Sie sich in weniger als einer Minute mit Ihrer E-Mail-Adresse oder Ihrem Google-Konto.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Gehen & Verdienen</h3>
+                    <p>Aktivieren Sie die App und verdienen Sie automatisch Geld für Ihre täglichen Schritte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="download">
+        <div class="container">
+            <h2 class="cta-title">Starten Sie noch heute!</h2>
+            <p class="cta-subtitle">Werden Sie Teil unserer Community von über 500.000 Nutzern, die bereits Geld mit WinWalk verdienen. Kostenlos, sicher und ohne Verpflichtungen.</p>
+            
+            <a href="germany.html" class="btn-primary">
+                <i class="fab fa-google-play"></i>
+                JETZT BEI GOOGLE PLAY HERUNTERLADEN
+            </a>
+            
+            <div class="android-badge">
+                <i class="fab fa-android"></i>
+                Exklusiv für Android verfügbar
+            </div>
+            
+            <p>Kompatibel mit Android 8.0 und höher • Keine Root-Berechtigung erforderlich</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WinWalk</h3>
+                    <p>Die revolutionäre App, die Ihr Gehen in echtes Geld verwandelt. Einfach, sicher und effektiv.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="#features">Funktionen</a></li>
+                        <li><a href="#money">Einnahmen</a></li>
+                        <li><a href="#how-it-works">So geht's</a></li>
+                        <li><a href="germany.html">Zur App</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Rechtliches</h3>
+                    <ul>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@winwalk.de</li>
+                        <li><i class="fas fa-phone"></i> +49 30 12345678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Berlin, Deutschland</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 WinWalk GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Einfache Animation für den Money-Chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartBars = document.querySelectorAll('.chart-bar');
+            
+            // Intersection Observer für Scroll-Animationen
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            // Beobachte die Chart-Balken
+            chartBars.forEach(bar => {
+                bar.style.opacity = '0';
+                bar.style.transform = 'translateX(-20px)';
+                bar.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(bar);
+            });
+            
+            // Automatische Weiterleitung nach 20 Sekunden
+            setTimeout(() => {
+                if (!sessionStorage.getItem('winwalkRedirected')) {
+                    window.location.href = 'germany.html';
+                    sessionStorage.setItem('winwalkRedirected', 'true');
+                }
+            }, 20000);
+        });
+    </script>
+</body>
+</html>
