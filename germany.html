@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WinWalk - Apps bei Google Play</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #f1f3f4;
+      color: #202124;
+    }
+
+    .header {
+      background: #fff;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .header img {
+      height: 28px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .app-header {
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+    }
+
+    .app-header img {
+      width: 110px;
+      height: 110px;
+      border-radius: 22px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .app-info h1 {
+      font-size: 26px;
+      margin: 0 0 8px 0;
+      color: #202124;
+      font-weight: 600;
+    }
+
+    .app-info p {
+      margin: 6px 0;
+      font-size: 15px;
+      color: #5f6368;
+    }
+
+    .install-btn {
+      margin-top: 18px;
+      display: inline-block;
+      background: #34a853;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(52,168,83,0.3);
+    }
+
+    .install-btn:hover {
+      background: #2c8a43;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(52,168,83,0.4);
+    }
+
+    /* Carrossel */
+    .screenshots {
+      margin-top: 35px;
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+      scrollbar-width: thin;
+    }
+
+    .screenshots::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .screenshots::-webkit-scrollbar-thumb {
+      background: #ddd;
+      border-radius: 3px;
+    }
+
+    .screenshots img {
+      height: 200px;
+      border-radius: 10px;
+      border: 1px solid #e8eaed;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.03);
+    }
+
+    .about {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid #e8eaed;
+    }
+
+    .about h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #202124;
+      font-weight: 600;
+    }
+
+    .about p, .about li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .about ul {
+      padding-left: 20px;
+    }
+
+    .about li {
+      margin-bottom: 8px;
+    }
+
+    /* Bewertungen */
+    .reviews {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid #e8eaed;
+    }
+
+    .reviews h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #202124;
+      font-weight: 600;
+    }
+
+    .review {
+      border-top: 1px solid #e8eaed;
+      padding: 20px 0;
+      display: flex;
+      gap: 18px;
+    }
+
+    .review:first-child {
+      border-top: none;
+    }
+
+    .review img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .review-content {
+      flex: 1;
+    }
+
+    .review strong {
+      font-size: 15px;
+      color: #202124;
+      font-weight: 600;
+    }
+
+    .stars {
+      color: #fbbc04;
+      font-size: 16px;
+      margin: 5px 0;
+      letter-spacing: 1px;
+    }
+
+    .review p {
+      font-size: 15px;
+      margin: 8px 0 0;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      color: #777;
+      margin-top: 20px;
+      border-top: 1px solid #e8eaed;
+    }
+    
+    .download-count {
+      background: #f8f9fa;
+      padding: 8px 12px;
+      border-radius: 16px;
+      font-size: 14px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Topo com logo Play Store -->
+  <div class="header">
+    <img src="https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png" alt="Google Play">
+  </div>
+
+  <!-- Container principal -->
+  <div class="container">
+    <!-- Cabeçalho do App -->
+    <div class="app-header">
+      <img src="https://play-lh.googleusercontent.com/8nCgqo5KYvF2Sqq1PqPpGddD6J6DeGoaIYwEko3V2Ealg8Esn0Ey9MSZkven2hB0l6n9=w240-h480-rw" alt="Logo WinWalk">
+      <div class="app-info">
+        <h1>WinWalk</h1>
+        <p>WinWalk GmbH · Gesundheit & Fitness</p>
+        <p>⭐ 4,2 · <span class="download-count">WinWalk 500.000 Downloads</span></p>
+        <a href="#" class="install-btn">JETZT INSTALLIEREN</a>
+      </div>
+    </div>
+
+    <!-- Carrossel de imagens -->
+    <div class="screenshots">
+      <img src="https://play-lh.googleusercontent.com/1ZVO1neeBq_kZ72Sm_YxDMXnlWm6jXpEO81rrImC0fCFQz1nIE71XJgf1M3655CtT2kt=w526-h296-rw" alt="Screenshot 1">
+      <img src="https://play-lh.googleusercontent.com/P_JEIIpieQc_eVa9otnA6cVnnxrFih6i0gAc0_WUVxjl5r7KNm2NbVZKx6esqb-ylsw=w526-h296-rw" alt="Screenshot 2">
+      <img src="https://play-lh.googleusercontent.com/6ZIv7mpXOwAUfL0EGi5jbeMCDlhxQ1Fwm4BH-TdxWYaZfSUHyDtFbqQTcGUj7pVEgtY=w526-h296-rw" alt="Screenshot 3">
+      <img src="https://play-lh.googleusercontent.com/FD3K1YXuW-MH32iCVSZfYZKajLW8iTsbhn3zISesOpb6Z3ow_7kwu90zV6IXRSwJ0A=w2560-h1440-rw" alt="Screenshot 4">
+    </div>
+
+    <!-- Sobre este app -->
+    <div class="about">
+      <h2>Über diese App</h2>
+      <p>
+        WinWalk ist eine innovative Schrittzähler-App, die Ihnen hilft, Ihre Fitnessziele zu erreichen und einen gesünderen Lebensstil zu führen. Mit präziser Schritterkennung und motivierenden Funktionen macht WinWalk Fitness zum Kinderspiel.
+      </p>
+      <ul>
+        <li><strong>Präziser Schrittzähler</strong> - Misst Schritte, Entfernung und Kalorienverbrauch mit hoher Genauigkeit</li>
+        <li><strong>Detaillierte Statistiken</strong> - Tägliche, wöchentliche und monatliche Übersichten Ihrer Aktivitäten</li>
+        <li><strong>Personalisierte Ziele</strong> - Setzen und verfolgen Sie Ihre persönlichen Fitnessziele</li>
+        <li><strong>Herzfrequenz-Monitoring</strong> - Integration mit kompatiblen Wearables und Smartwatches</li>
+        <li><strong>Soziale Wettbewerbe</strong> - Fordern Sie Freunde und Familie heraus und bleiben Sie motiviert</li>
+        <li><strong>Belohnungssystem</strong> - Verdienen Sie Punkte und Prämien für Ihre Aktivitäten</li>
+      </ul>
+      <p>
+        Mit WinWalk verwandeln Sie jeden Schritt in einen Erfolg. Laden Sie die App jetzt herunter und beginnen Sie Ihre Reise zu einem gesünderen, aktiveren Leben!
+      </p>
+    </div>
+
+    <!-- Avaliações -->
+    <div class="reviews">
+      <h2>Bewertungen und Rezensionen</h2>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Thomas">
+        <div class="review-content">
+          <strong>Thomas Schmidt</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>Ausgezeichnete App! Der Schrittzähler ist sehr genau und die Statistiken sind äußerst detailliert. Habe bereits 5 kg abgenommen, seit ich WinWalk nutze. Die täglichen Ziele motivieren mich, mehr zu laufen.</p>
+        </div>
+      </div>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Anna">
+        <div class="review-content">
+          <strong>Anna Müller</strong>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <p>Sehr gute App mit vielen nützlichen Funktionen. Das Design ist ansprechend und die Bedienung intuitiv. Ein kleiner Nachteil: Manchmal zählt sie Schritte nicht korrekt, wenn das Telefon in der Tasche ist.</p>
+        </div>
+      </div>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Markus">
+        <div class="review-content">
+          <strong>Markus Weber</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>Die Wettbewerbsfunktion mit Freunden motiviert mich, täglich mehr zu gehen. Die App erinnert mich an meine Ziele und zeigt meinen Fortschritt auf ansprechende Weise. Absolute Empfehlung!</p>
+        </div>
+      </div>
+      
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="Sabine">
+        <div class="review-content">
+          <strong>Sabine Fischer</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>Ich liebe die Belohnungspunkte! Endlich eine App, die nicht nur trackt, sondern auch motiviert. Habe meinen Arbeitsweg jetzt auf 10.000 Schritte ausgeweitet und fühle mich viel besser.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    © 2025 Google Play Store. WinWalk ist eine eingetragene Marke der WinWalk GmbH.
+  </div>
+</body>
+</html>
